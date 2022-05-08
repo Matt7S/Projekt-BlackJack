@@ -1,8 +1,16 @@
+import random
+import os
+import time
+
+def card_deck():
+    card_value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+    card_type = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
+
+
 
 def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    print(name)
 
 
 if __name__ == '__main__':
-    print_hi('projekcik_2137')
+    print_hi('Black Jack!!!')
