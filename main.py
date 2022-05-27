@@ -4,10 +4,19 @@ import time
 
 
 
-def card_deck():
+def card_deck(n=8): ##zrobione Joltimas
+    
     card_value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     card_type = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
-    number_of_decks = 1
+    list=[]
+    for z in range n:
+        for x in card_value:
+            elemtennt=[]
+            for y in card_type:
+                elemtennt=[x,y]
+                list.append(elemtennt)
+    print(list)
+    return list
 
 def random_card(card_value,car_type): #funkcja która losuje kartę,zajebista
 
