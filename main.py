@@ -4,12 +4,12 @@ import time
 
 
 
-def card_deck(n=8): ##zrobione Joltimas
+def card_deck(n=8): # zrobione przez Joltimas DZIAŁA  
     
     card_value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     card_type = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
     list=[]
-    for z in range n:
+    for z in range (n):
         for x in card_value:
             elemtennt=[]
             for y in card_type:
