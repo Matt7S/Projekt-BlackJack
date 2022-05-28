@@ -1,55 +1,81 @@
-#import os
-#import time
+import random
+import os
+import time
 
 
 
-def card_deck(n = 8): # zrobione przez Joltimas DZIAŁA
-    #print('random_card')
+import random
+import os
+import time
+def card_deck(n): #zrobione przez Joltimas DZIAŁA  
+    g=n
     card_value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     card_type = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
-    list = []
-
-    for z in range(n):
+    list=[]
+    for z in range (g):
         for x in card_value:
-            elemtennt = []
+            elemtennt=[]
             for y in card_type:
-                elemtennt = [x, y]
+                elemtennt=[x,y]
                 list.append(elemtennt)
-    print(list)
+
     return list
 
-def random_card(card_value,car_type): #funkcja która losuje kartę
-    print('random_card')
+def random_card(deck): #zrobione przez Joltimas DZIAŁA funkcja która losuje kartę,zajebista 
+    print(len(deck))
+    a=(random.randint(0, len(deck)))
+    b=deck[a]
+    #print(b)
+    return b
+    
+def hit(deck, stol): #zrobione przez Joltimas DZIAŁA dobieranie karty i wyświetlanie jej 
 
-def hit(): #dobieranie karty
-    print('hit')
+    b=random_card(deck)
+    print(b)
+    stol.append(b)
+    for x in stol: 
+        for y in x: 
+            print(y,end=" ")
+        print(" ")
+    print(stol)
+def game(): #zrobione przez Joltimas DZIAŁA tutaj dzieje się gra,połączyć z mainem
+    
+    deck=card_deck(1)
+    #print(deck)
+    #print(len(deck))
+    #print(a)
+    #b=random_card(a)
+    #print(b)
+    #print('Black Jack!!!')
+    stol=[]
+    #print(hit(deck, stol))
+    hit(deck, stol)
+def main():
+    game()
+if __name__ == "__main__":
+    main()
 
 def sum_of_cards(): #liczy sumę kart
-    print('sum_of_cards')
 
 def stats(): #oczywiste
-    print('stats')
 
 def rules(): #oczywiste
-    print('rules')
 
-def iq_krupier(): #poziom zawansowania krupiera (słabiak, dobry krupier, midas)
-    print('iq_krupier')
 
+def iq_krupier(): #poziom zawansowania krupiera(słabiak, dobry krupier, midas)
 
 def play_again(): #oczywiste
-    print('play_again')
 
-def game(): #tutaj dzieje się gra, połączyć z mainem
-    print('game')
+def game(): #tutaj dzieje się gra,połączyć z mainem
+
+def print_hi(name):
+    print(name) 
 
 
-def main():#tutaj dać przywitanie i wszytkie inne pierdoły, wybór opcji, statystyka
-    print('mian')
+def print_hi():#tutaj dać przywitanie i wszytkie inne pierdoły, wybór opcji, statystyka
     game()
 
 
 
 if __name__ == '__main__':
-    print('Black Jack!!!')
-    main()
+    print_hi('Black Jack!!!')
