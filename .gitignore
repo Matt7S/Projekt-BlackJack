@@ -1,0 +1,11 @@
+
+*.pdf
+*.tmp
+*.log
+
+
+log/
+build/
+idea/
+
+**/logs
