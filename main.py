@@ -14,9 +14,6 @@ def card_deck(n): #zrobione przez Joltimas DZIAŁA
 <<<<<<< HEAD
     number_of_decks = 1;
     number_of_midas = 4
-    #esssa
-    #esssa_2
-    #essa_3
     #proba
 =======
     list=[]
