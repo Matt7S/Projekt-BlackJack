@@ -2,7 +2,13 @@ import random
 #import os
 #import time
 
+wins = 0
+losses = 0
 
+decks = 1
+
+# user chooses number of decks of cards to use
+deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * ( int(decks) * 4)
 
 def card_deck(n): #zrobione przez Joltimas DZIAŁA  
     g=n
@@ -15,7 +21,7 @@ def card_deck(n): #zrobione przez Joltimas DZIAŁA
         for x in card_value:
             elemtennt=[]
             for y in card_type:
-                elemtennt=[x,y]
+                elemtennt=[x, y]
                 list.append(elemtennt)
 
     return list
@@ -40,7 +46,10 @@ def hit(deck, stol): #zrobione przez Joltimas DZIAŁA dobieranie karty i wyświe
 
 
 def game(): #zrobione przez Joltimas DZIAŁA tutaj dzieje się gra,połączyć z mainem
-    
+
+    print("\n\t\tWELCOME TO BLACKJACK!\n")
+    decks = input("Enter number of decks to use:\t")
+
     deck=card_deck(1)
     #print(deck)
     #print(len(deck))
@@ -70,7 +79,7 @@ def play_again(): #oczywiste
         player_hand = []
 
         game()
-        
+
     else:
         print("Bye!")
         exit()
