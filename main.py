@@ -1,14 +1,14 @@
-import random
 #import os
 #import time
+#import random
 
+#statystyki
 wins = 0
 losses = 0
 
+deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * (4 * int(decks_amount))
 decks = 1
 
-# user chooses number of decks of cards to use
-deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * ( int(decks) * 4)
 
 def card_deck(n): #zrobione przez Joltimas DZIAŁA  
     g=n
@@ -73,11 +73,16 @@ def rules(): #oczywiste
 
 
 def play_again(): #oczywiste
-    again = input("\tDo you want to play again? ( Y / N ) : ")
+    again = input("Do you want to play again? ( Y / N )")
     if again == "Y":
         dealer_hand = []
         player_hand = []
+        game()
 
+    else:
+        print("Bye! Bay!")
+        exit()
+    print('play_again')
         game()
 
     else:
