@@ -6,7 +6,7 @@
 wins = 0
 losses = 0
 
-decks_amount = input("How many decks do you want to play?")
+decks_amount = input("How many decks do you want to play?\t")
 
 deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * (4 * int(decks_amount))
 
