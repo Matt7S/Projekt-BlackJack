@@ -9,9 +9,3 @@ Tryb gry na czas.
 Jedna zaproponowane przez grupę.
 
 https://pl.wikipedia.org/wiki/Blackjack
-
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 253392f14661de28e84b6e7e97354d0e47f226a9
