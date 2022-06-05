@@ -9,5 +9,3 @@ Tryb gry na czas.
 Jedna zaproponowane przez grupę.
 
 https://pl.wikipedia.org/wiki/Blackjack
-
-
