@@ -1,7 +1,14 @@
 #import os
 #import time
+#import random
 
+#statystyki
+wins = 0
+losses = 0
 
+decks_amount = input("How many decks do you want to play?")
+
+deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * (4 * int(decks_amount))
 
 def card_deck(n = 8): # zrobione przez Joltimas DZIAŁA
     #print('random_card')
@@ -38,6 +45,14 @@ def iq_krupier(): #poziom zawansowania krupiera (słabiak, dobry krupier, midas)
 
 
 def play_again(): #oczywiste
+    again = input("Do you want to play again? ( Y / N )")
+    if again == "Y":
+        dealer_hand = []
+        player_hand = []
+        game()
+    else:
+        print("Bye! Bay!")
+        exit()
     print('play_again')
 
 def game(): #tutaj dzieje się gra, połączyć z mainem
@@ -47,7 +62,6 @@ def game(): #tutaj dzieje się gra, połączyć z mainem
 def main():#tutaj dać przywitanie i wszytkie inne pierdoły, wybór opcji, statystyka
     print('mian')
     game()
-
 
 
 if __name__ == '__main__':
