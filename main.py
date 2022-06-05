@@ -64,7 +64,16 @@ def rules(): #oczywiste
 
 
 def play_again(): #oczywiste
-    pass
+    again = input("\tDo you want to play again? ( Y / N ) : ")
+    if again == "Y":
+        dealer_hand = []
+        player_hand = []
+
+        game()
+        
+    else:
+        print("Bye!")
+        exit()
 
 
 def main():
