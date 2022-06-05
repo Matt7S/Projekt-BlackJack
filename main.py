@@ -50,6 +50,7 @@ def play_again(): #oczywiste
         dealer_hand = []
         player_hand = []
         game()
+
     else:
         print("Bye! Bay!")
         exit()
