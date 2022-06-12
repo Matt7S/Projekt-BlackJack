@@ -15,7 +15,6 @@ def card_deck(n): #zrobione przez Joltimas DZIAŁA
     card_value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     card_type = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
     number_of_decks = 1
-<<<<<<< HEAD
     for z in range(n):
         for x in card_value:
             element = []
@@ -23,18 +22,6 @@ def card_deck(n): #zrobione przez Joltimas DZIAŁA
                 element = [x, y]
                 list.append(element)
     print(list)
-    return list
-=======
-    number_of_midas = 4
-    list=[]
-    for z in range (g):
-        for x in card_value:
-            elemtennt=[]
-            for y in card_type:
-                elemtennt=[x, y]
-                list.append(elemtennt)
->>>>>>> c6feccfdb4bdb3b105049006b0b646742dc88724
-
     return list
 
 def random_card(deck): #zrobione przez Joltimas DZIAŁA funkcja która losuje kartę,zajebista 
@@ -55,25 +42,8 @@ def hit(deck, stol): #zrobione przez Joltimas DZIAŁA dobieranie karty i wyświe
         print(" ")
     print(stol)
 
-
-def game(): #zrobione przez Joltimas DZIAŁA tutaj dzieje się gra,połączyć z mainem
-
-    print("\n\t\tWELCOME TO BLACKJACK!\n")
-    decks = input("Enter number of decks to use:\t")
-
-    deck=card_deck(1)
-    #print(deck)
-    #print(len(deck))
-    #print(a)
-    #b=random_card(a)
-    #print(b)
-    #print('Black Jack!!!')
-    stol=[]
-    #print(hit(deck, stol))
-    hit(deck, stol)
-
 def sum_of_cards(): #liczy sumę kart
-        total = 0
+    total = 0
     for card in hand:
         if card == "J" or card == "Q" or card == "K":
             total+= 10
@@ -92,7 +62,6 @@ def rules(): #oczywiste
 
 
 def play_again(): #oczywiste
-<<<<<<< HEAD
     again = raw_input("Do you want to play again? (Y/N) : ").lower()
     if again == "y":
         dealer_hand = []
@@ -103,19 +72,32 @@ def play_again(): #oczywiste
     else:
         print("Bye")
         exit()
+
+
 def game(): #tutaj dzieje się gra,połączyć z mainem
-=======
     again = input("\tDo you want to play again? ( Y / N ) : ")
     if again == "Y":
         dealer_hand = []
         player_hand = []
 
         game()
->>>>>>> c6feccfdb4bdb3b105049006b0b646742dc88724
 
-    else:
-        print("Bye!")
-        exit()
+    print("\n\t\tWELCOME TO BLACKJACK!\n")
+    decks = input("Enter number of decks to use:\t")
+
+    deck=card_deck(1)
+    #print(deck)
+    #print(len(deck))
+    #print(a)
+    #b=random_card(a)
+    #print(b)
+    #print('Black Jack!!!')
+    stol=[]
+    #print(hit(deck, stol))
+    hit(deck, stol)
+
+    print("Bye!")
+    exit()
 
 
 def main():
