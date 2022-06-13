@@ -51,6 +51,8 @@ def rank():
         print("Srebro")
     elif 40<=percentage<60:
         print("Złoto")
+    elif 60<=percentage<80:
+        print("Platyna")
     elif 80<=percentage<100:
         print("Diament")
     elif percentage==100:
@@ -84,7 +86,7 @@ def total(hand):
             total=total+11
             if total>21:
                 total=total-10
-        # jesli zadne z powyzszych to po prostu dodawana jest wartosc karty
+        # jesli zadn6e z powyzszych to po prostu dodawana jest wartosc karty
         else: total += card
     return total
 
@@ -190,9 +192,20 @@ def game():
             print("Twoje punkty: " + str(total(player_hand)) + "\n")
             back(player_hand)
             if total(player_hand) > 21:
-                losses += 1
-                score(dealer_hand, player_hand)
-                back_to_menu()
+                if "A" in player_hand:
+                    sum=total(player_hand)-10
+                    if sum>21:
+                        score(dealer_hand,player_hand)
+                        losses+=1
+                        back_to_menu()
+                    else:
+                        score(dealer_hand,player_hand)
+                        wins+=1
+                        back_to_menu()
+                else:
+                    losses += 1
+                    score(dealer_hand, player_hand)
+                    back_to_menu()
 
             elif total(player_hand) == 21:
                 score(dealer_hand, player_hand)
