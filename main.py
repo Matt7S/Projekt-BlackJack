@@ -98,6 +98,11 @@ def hit(hand):
     return hand
 
 
+def back(hand):
+    back=input(print("Czy chciałbyś cofnąć ruch? [t]/[n]"))
+    if back == "t":
+        del hand[-1]
+    return hand
 
 #funkcja wypisujaca statystyki, bez wyniku rezultatu
 def print_results(dealer_hand, player_hand):
@@ -182,6 +187,7 @@ def game():
             hit(player_hand)
             print("Twoje karty: " + str(player_hand))
             print("Twoje punkty: " + str(total(player_hand)) + "\n")
+            back(player_hand)
             if total(player_hand) > 21:
                 losses += 1
                 score(dealer_hand, player_hand)
