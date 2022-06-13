@@ -81,8 +81,9 @@ def total(hand):
             total += 10
             #wartosc asa jest zalezna od tego ile wart jest deck
         elif card == "A":
-            if total >= 11: total += 1
-            else: total += 11
+            total=total+11
+            if total>21:
+                total=total-10
         # jesli zadne z powyzszych to po prostu dodawana jest wartosc karty
         else: total += card
     return total
