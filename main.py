@@ -27,7 +27,15 @@ def hello():
         else:
             hello()
     elif menu == "s":
-        print("\tWYGRANE: " + str(wins) + "\tPRZEGRANE: " + str(losses) + "\n")
+        print("\tWYGRANE W RUNNIE: " + str(wins) + "\tPRZEGRANE W RUNNIE: " + str(losses) + "\n")
+        file=open("output.txt","r")
+        win=0
+        all_=0
+        for x in file:
+            if int(x)==1:
+                win=win+1
+            all_=all_+1
+        print("\tWYGRANE OGOLNIE: " + str(win) + "\tPRZEGRANE OGOLNIE: " + str(all_-win) + "\n")
         back=input("Kliknij q, aby wrócić do menu")
         if back == "q":
             hello()
@@ -44,7 +52,18 @@ def hello():
     else:
         hello()
 def rank():
-    percentage=wins/(wins+losses)*100
+    file=open("output.txt","r")
+    win=0
+    all_=0
+    for x in file:
+        if int(x)==1:
+            win=win+1
+            all_=all_+1
+    percentage=win/(all_)*100
+    print("\tWYGRANE OGOLNIE: " + str(win) + "\tPRZEGRANE OGOLNIE: " + str(all_-win) + "\tPROCENT OGOLNIE: " + str(percentage)+"%\n")
+    if all_<20:
+        print("potrzebujesz 20 gier aby mieć range")
+        return 0 
     if percentage<20:
         print("Brąz")
     elif 20<=percentage<40:
@@ -127,37 +146,50 @@ def score(dealer_hand, player_hand):
         print_results(dealer_hand, player_hand)
         print ("Gratulacje! Masz Blackjacka!\n")
         wins += 1
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
 
     #nastepnnie sprawdzany jest warunek czy dealer ma 21 pkt
     elif total(dealer_hand) == 21:
         print_results(dealer_hand, player_hand)
         print ("Niestety, dealer ma blackjacka. Przegrales.\n")
         losses += 1
-
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
     #nastepnie sprawdzane jest czy gracz nie ma wiecej niz 21 punktow
     elif total(player_hand) > 21:
         print_results(dealer_hand, player_hand)
         print ("Niestety, masz wiecej niz 21 punktow. Przegrales.\n")
         losses += 1
-
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
     #sprawdzenie czy dealer ma wiecej niz 21 punktow
     elif total(dealer_hand) > 21:
         print_results(dealer_hand, player_hand)
         print ("Dealer ma wiecej niz 21 punktow. Wygrales!\n")
         wins += 1
-
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
     #sprawdzenie czy gracz ma mniej punktow niz dealer
     elif total(player_hand) < total(dealer_hand):
         print_results(dealer_hand, player_hand)
         print ("Niestety. Twoj wynik jest nizszy nie dealera. Przegrales.\n")
         losses += 1
-
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
     #sprawdzenie czy gracz ma wiecej punktow niz dealer
     elif total(player_hand) > total(dealer_hand):
         print_results(dealer_hand, player_hand)
         print ("Gratulaccje. Masz wyzszy wynik niz dealer. Wygrales!\n")
         wins += 1
-
+        file=open("output.txt","a")
+        file.write("1\n")
+        file.close
     elif total(player_hand)==total(dealer_hand):
         print_results(dealer_hand, player_hand)
         print ("REMIS.\n")
@@ -180,6 +212,9 @@ def game():
     if total(player_hand) == 21:
         score(dealer_hand, player_hand)
         wins += 1
+        file=open("output.txt","a")
+        file.write("1")
+        file.close
         back_to_menu()
 
     quit = False
@@ -197,19 +232,31 @@ def game():
                     if sum>21:
                         score(dealer_hand,player_hand)
                         losses+=1
+                        file=open("output.txt","a")
+                        file.write("0")
+                        file.close
                         back_to_menu()
                     else:
                         score(dealer_hand,player_hand)
                         wins+=1
+                        file=open("output.txt","a")
+                        file.write("1")
+                        file.close
                         back_to_menu()
                 else:
                     losses += 1
+                    file=open("output.txt","a")
+                    file.write("1")
+                    file.close
                     score(dealer_hand, player_hand)
                     back_to_menu()
 
             elif total(player_hand) == 21:
                 score(dealer_hand, player_hand)
                 wins += 1
+                file=open("output.txt","a")
+                file.write("1")
+                file.close
                 back_to_menu()
 
         elif choice == 's':
@@ -218,6 +265,9 @@ def game():
                 hit(dealer_hand)
                 if total(dealer_hand) > 21:
                     wins += 1
+                    file=open("output.txt","a")
+                    file.write("1")
+                    file.close
                     score(dealer_hand, player_hand)
                     back_to_menu()
             score(dealer_hand, player_hand)
@@ -239,3 +289,4 @@ def main():
 
 if __name__ == "__main__":
    main()
+
