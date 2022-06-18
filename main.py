@@ -5,7 +5,7 @@
 import random
 # import time
 
-decks = input("Wybierz liczbe  talii: \n")
+decks = input("Wybierz liczbe  talii:\t")
 
 # uzycie chcianej liczby talii
 
@@ -20,9 +20,9 @@ losses = 0
 # przywitanie sie z graczem
 def hello():
     print("\n\t\t\t    Witaj w Blackjack!\n")
-    menu = input(print("[G]ra, [S]tatystyki, [Z]asady, [R]anga, [W]yjdź \n"))
+    menu = input("[G]ra, [S]tatystyki, [Z]asady, [R]anga, [W]yjdz:\t")
     if menu == "g":
-        tryb = input(print("Wybierz tryb gry: [c]zas/[b]ez czasu"))
+        tryb = input("Wybierz tryb gry: [c]zas/[b]ez czasu:\t")
         # if tryb== "c":
         # tryb gry na czas
         if tryb == "b":
@@ -39,17 +39,17 @@ def hello():
                 win = win + 1
             all_ = all_ + 1
         print("\tWYGRANE OGOLNIE: " + str(win) + "\tPRZEGRANE OGOLNIE: " + str(all_ - win) + "\n")
-        quit = input("Kliknij q, aby wrócić do menu")
+        quit = input("Kliknij q, aby wrócić do menu\t" + "\n")
         if quit == "q":
             hello()
     elif menu == "z":
         print("https://pl.wikipedia.org/wiki/Blackjack")
-        quit = input("Kliknij q, aby wrócić do menu")
+        quit = input("Kliknij q, aby wrócić do menu\t")
         if quit == "q":
             hello()
     elif menu == "r":
         rank()
-        quit = input("Kliknij q, aby wrócić do menu")
+        quit = input("Kliknij q, aby wrócić do menu\t")
         if quit == "q":
             hello()
     elif menu == "w":
@@ -59,6 +59,7 @@ def hello():
         hello()
 
 
+# funkcja okreslajaca stopien zaawansowania gracza
 def rank():
     file = open("output.txt", "r")
     win = 0
@@ -138,8 +139,9 @@ def hit(hand):
     return hand
 
 
+# cofanie ruchu
 def back(hand):
-    back = input(print("Czy chciałbyś cofnąć ruch? [t]/[n]"))
+    back = input("Czy chciałbyś cofnąć ruch? [t]/[n]\t")
     if back == "t":
         del hand[-1]
     return hand
@@ -217,6 +219,7 @@ def score(dealer_hand, player_hand):
         print("REMIS\n")
 
 
+# gra
 def game():
     global wins
     global losses
@@ -225,7 +228,7 @@ def game():
     dealer_hand = deal(deck, 2)
     player_hand = deal(deck, 2)
 
-    print("Dealer pokazuje " + str(dealer_hand[0]))
+    print("\nDealer pokazuje " + str(dealer_hand[0]))
 
     print("Masz nastepujace karty " + str(player_hand) + " o liczbie punktow: " + str(total(player_hand)) + "\n")
 
@@ -240,7 +243,7 @@ def game():
     quit = False
 
     while not quit:
-        choice = input("Do wyboru: [H]it, [S]tand, or [Q]uit: \n").lower()
+        choice = input("Do wyboru: [H]it, [S]tand, or [Q]uit: \t").lower()
         if choice == 'h':
             hit(player_hand)
             print("Twoje karty: " + str(player_hand))
@@ -297,8 +300,9 @@ def game():
             exit()
 
 
+# powrot do menu
 def back_to_menu():
-    back = input(print("Czy chcesz wrócić do menu [t]/[n]\n")).lower()
+    back = input("Czy chcesz wrócić do menu [t]/[n]\t").lower()
     if back == "t":
         hello()
     else:
