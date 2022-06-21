@@ -292,7 +292,6 @@ def game_ale_z_czasem():
 
     dealer_hand = deal(deck, 2)
     player_hand = deal(deck, 2)
-    int
 
     print("\nDealer pokazuje " + str(dealer_hand[0]))
 
