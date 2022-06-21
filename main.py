@@ -4,9 +4,11 @@
 # import os
 import random
 import time
-
-decks = input("Wybierz liczbe  talii:\t")
-
+decks=0
+while int(decks)<1 or int(decks)>8:
+    decks = input("Wybierz liczbe  talii:\t")
+    if int(decks)<1 or int(decks)>8:
+        print("Zła liczba talii, proszę wybierz odpowiednią liczbę talii")
 # uzycie chcianej liczby talii
 
 deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * (int(decks) * 4)
