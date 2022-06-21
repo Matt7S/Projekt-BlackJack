@@ -23,7 +23,7 @@ def hello():
     menu = input("[G]ra, [S]tatystyki, [Z]asady, [R]anga, [W]yjdz:\t")
     if menu == "g":
         tryb = input("Wybierz tryb gry: [c]zas/[b]ez czasu:\t")
-        if tryb == "c":
+        if tryb== "c":
             game_ale_z_czasem()
         if tryb == "b":
             game()
@@ -282,8 +282,6 @@ def game():
         elif choice == "q":
             print("Do zobaczenia!")
             exit()
-
-
 def game_ale_z_czasem():
     global wins
     global losses
@@ -304,8 +302,7 @@ def game_ale_z_czasem():
     quit = False
 
     while not quit:
-        t = time.time()
-        print("Na podjęcie decyzji masz 10 sekund")
+        t=time.time()
         choice = input("Do wyboru: [H]it, [S]tand, or [Q]uit: \t").lower()
         if time.time()-t>=10:
 
@@ -357,8 +354,6 @@ def back_to_menu():
         hello()
     else:
         game()
-
-
 def back_to_menu_ale_z_czasem():
     back = input("Czy chcesz wrócić do menu [t]/[n]\t").lower()
     if back == "t":
