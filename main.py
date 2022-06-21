@@ -3,7 +3,7 @@
 
 # import os
 import random
-# import time
+import time
 
 decks = input("Wybierz liczbe  talii:\t")
 
@@ -23,8 +23,8 @@ def hello():
     menu = input("[G]ra, [S]tatystyki, [Z]asady, [R]anga, [W]yjdz:\t")
     if menu == "g":
         tryb = input("Wybierz tryb gry: [c]zas/[b]ez czasu:\t")
-        # if tryb== "c":
-        # tryb gry na czas
+        if tryb== "c":
+            game_ale_z_czasem()
         if tryb == "b":
             game()
         else:
@@ -239,7 +239,80 @@ def game():
     quit = False
 
     while not quit:
+        t=time.time()
         choice = input("Do wyboru: [H]it, [S]tand, or [Q]uit: \t").lower()
+        if time.time()-t>=10:
+            print("Twoj czas dobiegł końca")
+            losses += 1
+            file = open("output.txt", "a")
+            file.write("0\n")
+            file.close()
+            back_to_menu_ale_z_czasem()
+        if choice == 'h':
+            hit(player_hand)
+            print("Twoje karty: " + str(player_hand))
+            print("Twoje punkty: " + str(total(player_hand)) + "\n")
+            back(player_hand)
+            if total(player_hand) > 21:
+                if "A" in player_hand:
+                    sum = total(player_hand) - 10
+                    if sum > 21:
+                        score(dealer_hand, player_hand)
+                        back_to_menu()
+                    else:
+                        score(dealer_hand, player_hand)
+                        back_to_menu()
+                else:
+                    score(dealer_hand, player_hand)
+                    back_to_menu()
+
+            elif total(player_hand) == 21:
+                score(dealer_hand, player_hand)
+                back_to_menu()
+
+        elif choice == 's':
+            while total(dealer_hand) < 17:
+                print("Dealer dobiera karte")
+                hit(dealer_hand)
+                if total(dealer_hand) > 21:
+                    score(dealer_hand, player_hand)
+                    back_to_menu()
+            score(dealer_hand, player_hand)
+            back_to_menu()
+        elif choice == "q":
+            print("Do zobaczenia!")
+            exit()
+def game_ale_z_czasem():
+    global wins
+    global losses
+    t=time.time()
+    choice = 0
+
+    dealer_hand = deal(deck, 2)
+    player_hand = deal(deck, 2)
+    int
+
+    print("\nDealer pokazuje " + str(dealer_hand[0]))
+
+    print("Masz nastepujace karty " + str(player_hand) + " o liczbie punktow: " + str(total(player_hand)) + "\n")
+
+    if total(player_hand) == 21:
+        score(dealer_hand, player_hand)
+        back_to_menu()
+
+    quit = False
+
+    while not quit:
+        t=time.time()
+        choice = input("Do wyboru: [H]it, [S]tand, or [Q]uit: \t").lower()
+        if time.time()-t>=10:
+
+            print("Twoj czas dobiegł końca")
+            losses += 1
+            file = open("output.txt", "a")
+            file.write("0\n")
+            file.close()
+            back_to_menu_ale_z_czasem()
         if choice == 'h':
             hit(player_hand)
             print("Twoje karty: " + str(player_hand))
@@ -275,7 +348,6 @@ def game():
             print("Do zobaczenia!")
             exit()
 
-
 # powrot do menu
 def back_to_menu():
     back = input("Czy chcesz wrócić do menu [t]/[n]\t").lower()
@@ -283,7 +355,12 @@ def back_to_menu():
         hello()
     else:
         game()
-
+def back_to_menu_ale_z_czasem():
+    back = input("Czy chcesz wrócić do menu [t]/[n]\t").lower()
+    if back == "t":
+        hello()
+    else:
+        game_ale_z_czasem()
 
 def main():
     hello()
